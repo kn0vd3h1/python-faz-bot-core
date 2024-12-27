@@ -54,15 +54,11 @@ def validate_db_name(db_name: str) -> None:
 
 
 def run_sql(command: str) -> None:
-    """Execute SQL command via docker."""
+    """Execute SQL command."""
     try:
         subprocess.run(
             [
-                "docker",
-                "exec",
-                "-i",
                 "mysql",
-                "mariadb",
                 "-u",
                 "root",
                 f"-p{os.environ['MYSQL_ROOT_PASSWORD']}",
